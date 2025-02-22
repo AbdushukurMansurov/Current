@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    
+    
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <a href="{% url 'bot' %}">Chatgpt</a>
+            <h2>Currency Converter</h2>
+            
+            <label for="from">Choose currency from:</label>
+            <select name="from" id="from">
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="UZS">UZS - Uzbekistani Som</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="AED">AED - UAE Dirham</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="RUB">RUB - Russian Ruble</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+            </select>
+
+            <label for="to">Choose currency to:</label>
+            <select name="to" id="to">
+                <option value="UZS">UZS - Uzbekistani Som</option>
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="AED">AED - UAE Dirham</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="RUB">RUB - Russian Ruble</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+            </select>
+
+            <label for="amount" >Enter amount:</label>
+            <input type="number" name="amount" id="amount" placeholder="Enter amount" required>
+
+            <button type="submit">Convert</button>
+
+            <h2>Converted Amount: {{ output }}</h2>
+        </form>
+    </div>
+</body>
+</html>

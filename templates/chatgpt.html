@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Assistant</title>
+  <link rel="stylesheet" href="{% static 'chatgpt.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ChatGPT Assistant</h1>
+    </header>
+    <main>
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="How can I help you?" name="chat">
+        <input type="submit" value="Submit">
+      </form>
+      {% if result %}
+      <div class="result">
+        <h2>Response:</h2>
+        <p>{{ result }}</p>
+      </div>
+      {% endif %}
+    </main>
+    <footer>
+      <p>&copy; 2025 ChatGPT Assistant. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
